@@ -9,15 +9,11 @@ arrayChange(inputArray) = 3.
 """
 
 def arrayChange(inputArray):
-    moves = 0
-    trigger = False
-    while trigger is False:
-        trigger = True
+    answer = 0
+    
+    for i in range(1, len(inputArray)):
+        if inputArray[i] <= inputArray[i-1]:
+            answer += inputArray[i-1] - inputArray[i] + 1
+            inputArray[i] = inputArray[i-1] + 1
         
-        for i in range(len(inputArray)-1):
-            if inputArray[i] >= inputArray[i+1]:
-                inputArray[i+1] += 1
-                moves +=1
-                trigger = False
-                
-    return moves
+    return answer
